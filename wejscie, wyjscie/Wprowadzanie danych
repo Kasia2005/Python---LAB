@@ -1,4 +1,0 @@
-def main():
-
-  dane = input("Proszę podać imię, nazwisko i rok urodzenia: ")
-  personal_data_split = personal_data.split()
