@@ -9,7 +9,7 @@ def check_if_number(input):
         start()
 
 
-def start():
+def main():
     input_data = input("Proszę podać po kolei(oddzielone spacją) współczynniki a, b i c równania kwadratowego: ")
     input_data_split = input_data.split()
 
@@ -31,4 +31,5 @@ def start():
     else:
         print("Funkcja nie ma rozwiązania w dziedzinie rzeczywistej")
 
-start()
+if __name__ == '__main__':
+    main()
