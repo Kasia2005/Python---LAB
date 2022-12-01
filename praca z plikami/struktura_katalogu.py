@@ -6,13 +6,14 @@ files =[]
 directories =[]
 
 
-def file_in_directory_tree(path):
+def main(path):
     for (dirpath, dirnames, filenames) in walk(path):
         files.extend(filenames)
         directories.extend(dirnames)
 
 
 
-file_in_directory_tree(path)
+if __name__ == '__main__':
+    main(path)
 
 print (files, directories)
