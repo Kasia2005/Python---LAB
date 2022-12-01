@@ -5,7 +5,7 @@ numbers_length = 50
 for i in range(numbers_length):
     numbers.append(randint(0,100))
 
-def sort(list):
+def main(list):
     for j in range(len(list)-1):
         for i in range(len(list)-1):
             if (list[i]<list[i+1]):
@@ -14,5 +14,6 @@ def sort(list):
 
 
 print(numbers)
-sort(numbers)
-print(numbers)
+if __name__ == '__main__':
+    main(numbers)
+    print(numbers)
