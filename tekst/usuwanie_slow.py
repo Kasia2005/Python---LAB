@@ -1,14 +1,19 @@
-words_list = [' się ', ' i ', ' oraz ', ' nigdy ', ' dlaczego ']
+def main():
 
-with open("tekst.txt", 'r') as text_file:
-    temp_text = text_file.read()
+    words_list = [' się ', ' i ', ' oraz ', ' nigdy ', ' dlaczego ']
 
-for word in words_list:
-    temp_text = temp_text.replace(word, " ")
+    with open("tekst.txt", 'r') as text_file:
+        temp_text = text_file.read()
 
-with open("replaced_file.txt", 'w') as replaced_file_temp:
-    replaced_file_temp.write(temp_text)
+    for word in words_list:
+        temp_text = temp_text.replace(word, " ")
+
+    with open("replaced_file.txt", 'w') as replaced_file_temp:
+        replaced_file_temp.write(temp_text)
 
 
-text_file.close()
-replaced_file_temp.close()
+    text_file.close()
+    replaced_file_temp.close()
+    
+if __name__ == '__main__':
+    main()
