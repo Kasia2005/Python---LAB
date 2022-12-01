@@ -7,16 +7,16 @@ class ComplexNumber:
         self.imag = imag
 
     def addition_complex(self, complex_number):
-        return ComplexNumber(self.real + complex_number.real, self.imag + complex_number.imag)
+        return ComplexNumber(self.real.__add__(complex_number.real), self.imag.__add__(complex_number.imag))
 
     def subtraction_complex(self, complex_number):
-        return ComplexNumber(self.real - complex_number.real, self.imag - complex_number.imag)
+        return ComplexNumber(self.real.__sub__(complex_number.real), self.imag.__sub__(complex_number.imag))
 
     def multiplication_complex(self, complex_number):
-        return ComplexNumber(self.real * complex_number.real - self.imag * complex_number.imag, self.real * complex_number.imag + self.imag * complex_number.real)
+       return ComplexNumber(self.real.__mul__(complex_number.real).__sub__(self.imag.__mul__(complex_number.imag)), self.real.__mul__(complex_number.imag).__add__(self.imag.__mul__(complex_number.real)))
 
     def conjugation_complex(self):
-        return ComplexNumber(self.real, -1*self.imag)
+        return ComplexNumber(self.real, (-1).__mul__(self.imag))
 
     def absolute_complex(self):
-        return math.sqrt(self.real * self.real + self.imag * self.imag)
+        return math.sqrt((self.real.__mul__(self.real)).__add__(self.imag.__mul__(self.imag)))
