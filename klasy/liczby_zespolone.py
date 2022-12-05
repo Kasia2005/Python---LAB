@@ -1,22 +1,27 @@
-import math
-
 class ComplexNumber:
 
     def __init__(self, real, imag):
         self.real = real
         self.imag = imag
 
-    def addition_complex(self, complex_number):
-        return ComplexNumber(self.real.__add__(complex_number.real), self.imag.__add__(complex_number.imag))
+    def __str__(self):
+        if self.imag >= 0:
+            return "Complex number: {0}+{1}j".format(self.real, self.imag)
+        else:
+            return "Complex number: {0}{1}j".format(self.real, self.imag)
 
-    def subtraction_complex(self, complex_number):
-        return ComplexNumber(self.real.__sub__(complex_number.real), self.imag.__sub__(complex_number.imag))
+    def __add__(self, complex_number):
+        r = self.real + complex_number.real
+        i = self.imag + complex_number.imag
+        return ComplexNumber(r, i)
 
-    def multiplication_complex(self, complex_number):
-       return ComplexNumber(self.real.__mul__(complex_number.real).__sub__(self.imag.__mul__(complex_number.imag)), self.real.__mul__(complex_number.imag).__add__(self.imag.__mul__(complex_number.real)))
+    def __sub__(self, complex_number):
+        r = self.real - complex_number.real
+        i = self.imag - complex_number.imag
+        return ComplexNumber(r, i)
 
-    def conjugation_complex(self):
-        return ComplexNumber(self.real, (-1).__mul__(self.imag))
-
-    def absolute_complex(self):
-        return math.sqrt((self.real.__mul__(self.real)).__add__(self.imag.__mul__(self.imag)))
+    def __mul__(self, complex_number):
+        r = self.real * complex_number.real - self.imag * complex_number.imag
+        i = self.real * complex_number.imag + self.imag * complex_number.real
+        return ComplexNumber(r, i)
+    
