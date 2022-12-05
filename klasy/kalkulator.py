@@ -1,48 +1,28 @@
 from liczby_zespolone import ComplexNumber
 
-def parse_complex(input):
-    input_split = input.split("+")
-    real_str = input_split[0]
-    imag_str = input_split[1].strip("i")
-    return int(real_str), int(imag_str)
-
 def main():
+
+    real1= float(input("Wprowadź część rzeczywistą pierwszej liczby: "))
+    imag1 = float(input("Wprowadź część urojoną pierwszej liczby: "))
+    real2 = float(input("Wprowadź część rzeczywistą drugiej liczby: "))
+    imag2 = float(input("Wprowadź część urojoną drugiej liczby: "))
+
+    complex1 = ComplexNumber(real1, imag1)
+    complex2 = ComplexNumber(real2, imag2)
+
     choice = int(input("Proszę wybrać rodzaj operacji: \n"
-                      "1 - dodawanie liczb zespolonych\n"
-                      "2 - odejmowanie liczb zespolonych\n"
-                      "3 - mnożenie liczb zespolonych\n"
-                      "4 - sprzężenie liczby zespolonej\n"
-                      "5 - wartość bezwględna liczby zespolonej"))
+                       "1 - dodawanie liczb zespolonych\n"
+                       "2 - odejmowanie liczb zespolonych\n"
+                       "3 - mnożenie liczb zespolonych\n"))
     if choice == 1:
-        re,im = parse_complex(input("Proszę wpisać pierwszą liczbę( w formace RE+IMi):"))
-        complex1 = ComplexNumber(re,im)
-        re,im = parse_complex(input("Proszę wpisać drugą liczbę( w formace RE+IMi):"))
-        complex2 = ComplexNumber(re,im)
-        complex1.addition_complex(complex2)
-        print(complex1.real+complex2.real,"+",complex1.imag+complex2.imag,"i")
+        wynik= complex1+complex2
+        print(wynik)
     elif choice == 2:
-        re, im = parse_complex(input("Proszę wpisać pierwszą liczbę( w formace RE+IMi):"))
-        complex1 = ComplexNumber(re, im)
-        re, im = parse_complex(input("Proszę wpisać drugą liczbę( w formace RE+IMi):"))
-        complex2 = ComplexNumber(re, im)
-        complex1.subtraction_complex(complex2)
-        print(complex1.real-complex2.real, "+", complex1.imag-complex2.imag, "i")
+        wynik = complex1 - complex2
+        print(wynik)
     elif choice == 3:
-        re, im = parse_complex(input("Proszę wpisać pierwszą liczbę( w formace RE+IMi):"))
-        complex1 = ComplexNumber(re, im)
-        re, im = parse_complex(input("Proszę wpisać drugą liczbę( w formace RE+IMi):"))
-        complex2 = ComplexNumber(re, im)
-        complex1.multiplication_complex(complex2)
-        print((complex1.real*complex2.real)-(complex1.imag*complex2.imag), "+", (complex1.real*complex2.imag)+(complex1.imag*complex2.real), "i")
-    elif choice == 4:
-        re, im = parse_complex(input("Proszę wpisać pierwszą liczbę( w formace RE+IMi):"))
-        complex1 = ComplexNumber(re, im)
-        complex1.conjugation_complex()
-        print(complex1.real, "+", -complex1.imag, "i")
-    elif choice == 5:
-        re, im = parse_complex(input("Proszę wpisać pierwszą liczbę( w formace RE+IMi):"))
-        complex1 = ComplexNumber(re, im)
-        print(complex1.absolute_complex())
+        wynik = complex1 * complex2
+        print(wynik)
     else:
         print("Nieprawidłowy wybór!")
         main()
